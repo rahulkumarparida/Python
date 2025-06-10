@@ -9,6 +9,7 @@ b*= a
 print("Multiplacation : " , b)
 b/= a
 print("Division : " , b)
+
 #Task2
 c =input("Enter your firstname : ")
 d = input("Enter your lastname : ")
