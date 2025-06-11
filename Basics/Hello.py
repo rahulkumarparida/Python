@@ -10,7 +10,6 @@ c= 4
 d = None
 print(d)
 
-arr = [{'name' : "Rahul"} , {"age": "21"} , {"studying" : "B.tech CSE"}]
 
 
 
