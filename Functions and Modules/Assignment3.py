@@ -7,6 +7,7 @@ def Fact(n):
     else: return n * (Fact(n-1))
 print("Factorial  of " , n , " is: ", Fact(n))
 
+
 # Using the Math Module for Calculations
 import  math
 m = int(input("Enter another number : "))
