@@ -1,0 +1,14 @@
+    # Python specific ignores
+    __pycache__/
+    *.pyc
+    .env
+    venv/
+    env/
+
+    # Logs
+    *.log
+    #Private(postgres)
+    Database(postgreSQL) and Python/private.py
+
+    # Operating System files
+    .DS_Store
