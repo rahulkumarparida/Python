@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# VS Code settings
+.vscode/
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+.env/
+
+# Django stuff
+LearnDjango/demo/migrations/db.sqlite3
+LearnDjango/demo/migrations/
+LearnDjango/demo/migrations/__init__.py
+
+
+LearnDjango/Learn/db.sqlite3
+
+# Environment / secret files
+*.env
+.env
+private.py
+
+
+# Logs
+*.log
