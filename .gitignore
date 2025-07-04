@@ -14,18 +14,19 @@ ENV/
 .env/
 
 # Django stuff
-LearnDjango/demo/migrations/db.sqlite3
-LearnDjango/demo/migrations/
-LearnDjango/demo/migrations/__init__.py
+db.sqlite3
+migrations/
+__init__.py
 
 
-LearnDjango/Learn/db.sqlite3
+
 
 # Environment / secret files
 *.env
 .env
 private.py
-
+*.idea/
+.idea/
 
 # Logs
 *.log

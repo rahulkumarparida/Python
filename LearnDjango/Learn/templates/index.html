@@ -4,15 +4,17 @@
 <h1>Hello from django templates</h1>
 <h2>My name is {{name}} and i am {{age}} year old this is using data injected in views folder</h2>
 <br>
-<form action="/biodata" style="border: 1px solid black; margin: 15px; ">
+<form action="/biodata/"  method="post">
+    {% csrf_token %}
     <label for="name" >
-        <input type="text" placeholder="name" name="Name" style="border: 1px solid aqua; padding: 5px; margin: 7px;">
+        <input type="text" placeholder="name"  name="Name
+        ">
     </label> <br>
     <label for="age" >
-        <input type="number" placeholder="age" name="Age" style="border: 1px solid aqua; padding: 5px; margin: 7px;">
+        <input type="number" placeholder="age" name="Age" >
     </label><br>
     <label for="D.O.B" >
-        <input type="date" name="DateofBirth" id="dob" style="border: 1px solid aqua; padding: 5px; margin: 7px;">
+        <input type="date" name="DateofBirth" id="dob" >
     </label><br>
     <input type="submit" value="Sumbit">
 </form>

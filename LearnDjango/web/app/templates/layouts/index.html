@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title%}
+    HomePage
+{% endblock  %}
+
+{% block content %}
+    
+<h3>Hello world</h3>
+<p>This is the Homepage</p>
+<button class="btn btn-dark"><a href="{% url 'contact' %}">Add Contact</a></button>
+{% endblock  %}

@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  background-color: gray;
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+nav {
+  display: flex;
+  height: 30px;
+  width: 100%;
+  background-color: black;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+}
+.index {
+  display: flex;
+}
+.blogCard {
+  border: 2px solid aqua;
+  background-color: #161616;
+  width: 300px;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 8px;
+}
+a {
+ 
+  text-decoration: none;
+  border-radius: 10px;
+}
+button {
+  padding: 7px;
+  background-color: rgb(42, 42, 42);
+  box-shadow: 0 0 10px white;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  transition: all ease 0.3s;
+}
+ button:hover,
+    nav > a:hover {
+  background-color: white;
+  color: black;
+}
+
+.blogCard > img{
+    height: 200px;
+    width: 270px;
+    object-fit: cover;
+}
+
+img{
+    object-fit: cover;
+}

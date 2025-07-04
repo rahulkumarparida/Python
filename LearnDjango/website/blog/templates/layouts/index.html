@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav>
+    
+    <h1>Blogs</h1>
+   <a href="{% url 'addBlog' %}"> <button>Add a new blog </button> </a>
+
+</nav>  
+
+<div class="index">
+
+    {% for post in post.all %}
+    <div class="blogCard">
+
+        <img src="{{ post.image.url }}" alt="" > <br>
+        {{ post.time }}
+        <a href="{% url 'details' post.id %}"><h3>{{ post.title }}</h3></a>  <br>
+        <p>{{ post.summary }}...</p>
+    </div>
+    {% endfor %}
+    
+</div>
+
+{% endblock  %}
