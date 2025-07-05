@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Resgistration Form{% endblock  %}
+
+
+
+
+
+{% block content %}
+<div class="Regform">
+<form action="/confirm" method="post">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name : </label>
+        <input type="text" class="form-control"  type="text" name="Name">
+      </div>
+      <div class="mb-3">
+        <label for="City" class="form-label">City : </label>
+        <input type="text" class="form-control" type="text" name="City" id="City">
+    </div>
+    <div class="mb-3">
+        <label for="PhnNum" class="form-label">Phone Number : </label>
+        <input type="text" class="form-control"  type="text" name="PhnNum">
+    </div>
+    <button type="submit">Register</button>
+        <!-- <input type="text" type="submit" value="Register"> -->
+    
+</form>
+</div>
+<div style="margin: 50px;">
+    <img src="{{pic}}" alt="" height="300px" width="500px" style="object-fit: cover;">
+</div>
+{% endblock  %}
