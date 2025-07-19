@@ -11,6 +11,8 @@ from employee.models import Employees
 from django.http import Http404
 
 
+from rest_framework import generics , mixins
+
 
 # Create Student views here.[OLD method]
 @api_view(['GET' , 'POST'])
@@ -53,42 +55,67 @@ def studentDetailview(request , pk):
 
 # Create Employee views here.[New Method]
 
-class Employee(APIView):
-    def get(self , request):
-        employees = Employees.objects.all()
-        serializer = EmployeeSerializer(employees , many=True)
-        return Response(serializer.data , status=status.HTTP_200_OK)
+# class Employee(APIView):
+#     def get(self , request):
+#         employees = Employees.objects.all()
+#         serializer = EmployeeSerializer(employees , many=True)
+#         return Response(serializer.data , status=status.HTTP_200_OK)
     
-    def post(self , request):
-        serializer = EmployeeSerializer(data = request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data , status=status.HTTP_201_CREATED)
-        return Response(serializer.errors , status=status.HTTP_400_BAD_REQUEST)
+#     def post(self , request):
+#         serializer = EmployeeSerializer(data = request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data , status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors , status=status.HTTP_400_BAD_REQUEST)
 
-class employeeDetail(APIView):
-    def get_object(self , pk):
-        try:
-            return Employees.objects.get(pk=pk)
-        except Employees.DoesNotExist:
+# class employeeDetail(APIView):
+#     def get_object(self , pk):
+#         try:
+#             return Employees.objects.get(pk=pk)
+#         except Employees.DoesNotExist:
 
-            raise Http404
-    def get(self , request , pk):
-        emp = self.get_object(pk)
-        serilaizer = EmployeeSerializer(emp)
-        return Response(serilaizer.data , status=status.HTTP_200_OK)
+#             raise Http404
+#     def get(self , request , pk):
+#         emp = self.get_object(pk)
+#         serilaizer = EmployeeSerializer(emp)
+#         return Response(serilaizer.data , status=status.HTTP_200_OK)
+    
+#     def put(self , request , pk):
+#         emp = self.get_object(pk)
+#         serializer = EmployeeSerializer(emp , data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data , status=status.HTTP_200_OK)
+#         return Response(serializer.errors , status=status.HTTP_400_BAD_REQUEST)
+    
+#     def delete(self , request , pk):
+#         emp = self.get_object(pk)
+#         emp.delete()
+#         serilaizer = EmployeeSerializer(emp)
+#         return Response(serilaizer.data , status=status.HTTP_204_NO_CONTENT)
+
+
+class Employee(mixins.ListModelMixin ,mixins.CreateModelMixin, generics.GenericAPIView):
+    queryset = Employees.objects.all()
+    serializer_class = EmployeeSerializer
+    def get(self , request):
+        return self.list(request)
+    
+    def put(self , request):
+        return self.create(request)
+    
+class employeeDetail( mixins.CreateModelMixin , mixins.DestroyModelMixin , mixins.RetrieveModelMixin , mixins.UpdateModelMixin , generics.GenericAPIView):
+    queryset = Employees.objects.all()
+    serializer_class = EmployeeSerializer
+    
+    def get(self,request , pk):
+        return self.retrieve(request , pk)
     
     def put(self , request , pk):
-        emp = self.get_object(pk)
-        serializer = EmployeeSerializer(emp , data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data , status=status.HTTP_200_OK)
-        return Response(serializer.errors , status=status.HTTP_400_BAD_REQUEST)
+
+        return self.update(request , pk)
     
     def delete(self , request , pk):
-        emp = self.get_object(pk)
-        emp.delete()
-        serilaizer = EmployeeSerializer(emp)
-        return Response(serilaizer.data , status=status.HTTP_204_NO_CONTENT)
-    
+
+        return self.destroy(request , pk)
+       
