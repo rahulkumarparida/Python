@@ -4,8 +4,8 @@ import requests #diffrent library
 
 
 
-url = request.urlopen('https://all-student-manger.onrender.com/')
-urls = 'https://all-student-manger.onrender.com/'
+url = request.urlopen('https://www.youtube.com/')
+urls = 'https://www.youtube.com/'
 response = requests.get(url=urls)
 
 
